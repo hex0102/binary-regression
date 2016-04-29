@@ -3,8 +3,8 @@
 Deep Neural Networks for Regression Using Lasagne   
 
 data:   
-x: 1*44 vector   
-y: 1*2  vector
+x: 1x44 vector   
+y: 1x2  vector
 
 using mlp fitting,    
 the loss function  mean(abs(pred-target)/abs(target))   
