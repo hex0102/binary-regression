@@ -1,6 +1,6 @@
 # Lasagne-for-Regression   
 
-Deep Neural Networks for Regression Using Lasagne   
+Deep Regression Networks  
 
 data:   
 x: 1x44 vector   

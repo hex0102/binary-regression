@@ -33,7 +33,7 @@ def min_max(x):
         return x
 
 def load_data():
-        path="data\\"
+        path="data/"
         x=np.loadtxt(path+"train_x.txt")
         x=min_max(x)
         y=np.loadtxt(path+"train_y.txt")

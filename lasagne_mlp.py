@@ -59,7 +59,7 @@ def iterate_minibatches(inputs, targets, batchsize, shuffle=True):
             excerpt = slice(start_idx, start_idx + batchsize)
         yield inputs[excerpt], targets[excerpt]
 
-def main(num_epochs=500):
+def main(num_epochs=200):
     # Load the dataset
     print("Loading data...")
     X_train, y_train, X_val, y_val, X_test, y_test = load_data()
@@ -78,11 +78,11 @@ def main(num_epochs=500):
     
     params = lasagne.layers.get_all_params(network, trainable=True)
     
-    updates = lasagne.updates.nesterov_momentum(loss, params, learning_rate=0.03, momentum=0.9)
+    #updates = lasagne.updates.nesterov_momentum(loss, params, learning_rate=0.03, momentum=0.9)
     #updates = lasagne.updates.rmsprop(loss, params, learning_rate=0.003, rho=0.05,epsilon=1e-6)
     #updates = lasagne.updates.adagrad(loss, params, learning_rate=0.05, epsilon=1e-6)
     #updates = lasagne.updates.adadelta(loss, params, learning_rate=0.05, rho=0.1,epsilon=1e-6)
-    #updates = lasagne.updates.adam(loss, params, learning_rate=0.05, beta1=0.5, beta2=0.5, epsilon=1e-6)
+    updates = lasagne.updates.adam(loss, params, learning_rate=0.05, beta1=0.5, beta2=0.5, epsilon=1e-6)
 
     test_prediction = lasagne.layers.get_output(network, deterministic=True)
     #test_loss = lasagne.objectives.squared_error(test_prediction,target_var)
@@ -148,7 +148,7 @@ def main(num_epochs=500):
     plt.show()
     
 if __name__ == '__main__':
-    main(num_epochs=1000)
+   main(num_epochs=150)
 	
 	
 	
